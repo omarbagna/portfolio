@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+@font-face {
+	font-family: 'aquireFont';
+	src: url('./constants/Aquire.otf') format('embedded-opentype'),
+		/* Internet Explorer */ url('./constants/Aquire.otf') format('woff2'),
+		/* Super Modern Browsers */ url('./constants/Aquire.otf') format('woff'),
+		/* Pretty Modern Browsers */ url('./constants/Aquire.otf')
+			format('truetype'),
+		/* Safari, Android, iOS */ url('./constants/Aquire.otf') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+	font-family: 'nasalizationFont';
+	src: url('./constants/nasalization.otf') format('embedded-opentype'),
+		/* Internet Explorer */ url('./constants/nasalization.otf') format('woff2'),
+		/* Super Modern Browsers */ url('./constants/nasalization.otf')
+			format('woff'),
+		/* Pretty Modern Browsers */ url('./constants/nasalization.otf')
+			format('truetype'),
+		/* Safari, Android, iOS */ url('./constants/nasalization.otf') format('svg'); /* Legacy iOS */
+}
+
+:root {
+	--font-base: 'nasalizationFont', 'DM Sans', sans-serif;
+	--font-head: 'aquireFont', monospace;
+
+	--main-bg: #1a1c22;
+	--white-bg1: #f7f7f7;
+	--white-bg2: #f7f7f7;
+	--primary-color: #24dacd;
+	--secondary-color: #edf2f8;
+	--black-color: #030303;
+	--lightGray-color: #e4e4e4;
+	--gray-color: #6b7688;
+	--brown-color: #46364a;
+	--white-color: #24dacd;
+	--purple-color: rgb(157, 102, 240);
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--brown-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--purple-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--lightGray-color);
+}

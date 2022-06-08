@@ -1,0 +1,246 @@
+.app {
+	background-color: var(--main-bg);
+	font-family: var(--font-base);
+
+	height: 100vh;
+
+	@media screen and (max-width: 1200px) {
+		height: 100%;
+	}
+}
+
+.app__whitebg {
+	background-color: var(--main-bg);
+}
+
+.app__primarybg {
+	background-color: var(--main-bg);
+}
+
+.app__container {
+	width: 100%;
+	height: 100vh;
+	scroll-snap-align: start;
+
+	display: flex;
+	flex-direction: row;
+
+	@media screen and (max-width: 1200px) {
+		height: 100%;
+	}
+}
+
+.app__flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app__wrapper {
+	flex: 1;
+	width: 100%;
+	flex-direction: column;
+	padding: 4rem 2rem;
+
+	@media screen and (max-width: 450px) {
+		padding: 4rem 1rem 2rem;
+	}
+}
+
+.copyright {
+	width: 30%;
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	padding: 2rem 0 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+
+	p {
+		text-transform: uppercase;
+		color: var(--secondary-color);
+	}
+}
+
+.head-text {
+	font-family: var(--font-head);
+	font-size: 2.75rem;
+	font-weight: 800;
+	text-align: center;
+	color: var(--white-bg2);
+	text-transform: capitalize;
+
+	span {
+		color: var(--purple-color);
+		text-shadow: 0 0 5px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 8px #9d66f0,
+			0 0 12px #9d66f0, 0 0 15px #9d66f0, 0 0 10px #9d66f0, 0 0 15px #9d66f0;
+	}
+
+	@media screen and (min-width: 2000px) {
+		font-size: 4rem;
+	}
+
+	@media screen and (max-width: 450px) {
+		font-size: 2rem;
+	}
+}
+
+.p-text {
+	font-size: 0.8rem;
+	text-align: left;
+	color: var(--secondary-color);
+	line-height: 1.5;
+
+	@media screen and (min-width: 2000px) {
+		font-size: 1.75rem;
+	}
+}
+
+.bold-text {
+	font-size: 1rem;
+	font-weight: 800;
+	color: var(--white-bg2);
+	text-align: left;
+
+	@media screen and (min-width: 2000px) {
+		font-size: 2rem;
+	}
+
+	@media screen and (max-width: 450px) {
+		font-size: 0.9rem;
+	}
+}
+
+.app__social {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: column;
+	cursor: pointer;
+
+	position: fixed;
+	bottom: 1rem;
+	padding: 1rem;
+
+	div {
+		width: 40px;
+		height: 40px;
+		background-color: #3d3a50;
+		-webkit-transform: skew(21deg);
+		-moz-transform: skew(21deg);
+		-o-transform: skew(21deg);
+		transform: skew(21deg);
+		margin: 0.35rem 0;
+		//border: 1px solid var(--black-color);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		transition: all 0.3s ease-in-out;
+
+		svg {
+			width: 15px;
+			height: 15px;
+			color: var(--secondary-color);
+			-webkit-transform: skew(-21deg);
+			-moz-transform: skew(-21deg);
+			-o-transform: skew(-21deg);
+			transform: skew(-21deg);
+		}
+
+		&:hover {
+			background-color: var(--white-bg1);
+			//border-color: var(--secondary-color);
+			box-shadow: 0 0 25px rgba(#f7f7f7, 0.5);
+			-webkit-transform: skew(0deg);
+			-moz-transform: skew(0deg);
+			-o-transform: skew(0deg);
+			transform: skew(0deg);
+			//border-radius: 50%;
+
+			svg {
+				color: var(--purple-color);
+				-webkit-transform: skew(0deg);
+				-moz-transform: skew(0deg);
+				-o-transform: skew(0deg);
+				transform: skew(0deg);
+			}
+		}
+
+		@media screen and (min-width: 2000px) {
+			width: 70px;
+			height: 70px;
+
+			margin: 0.5rem 0;
+
+			svg {
+				width: 30px;
+				height: 30px;
+			}
+		}
+	}
+}
+
+.app__navigation {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	flex-direction: column;
+
+	padding: 1rem;
+
+	.app__navigation-dot {
+		width: 20px;
+		height: 3px;
+		//border-radius: 15px;
+		-webkit-transform: skew(-21deg);
+		-moz-transform: skew(-21deg);
+		-o-transform: skew(-21deg);
+		transform: skew(-21deg);
+		background-color: #3d3a50;
+		margin: 0.5rem;
+
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			background-color: var(--white-bg1);
+			width: 30px;
+		}
+
+		@media screen and (min-width: 1700px) {
+			width: 25px;
+			height: 5px;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.app__navigation,
+	.app__social {
+		display: none;
+	}
+
+	.copyright {
+		width: 26%;
+		background: rgba(#3d3a50, 0.15);
+		-webkit-transform: skew(-21deg);
+		-moz-transform: skew(-21deg);
+		-o-transform: skew(-21deg);
+		transform: skew(-21deg);
+		padding: 0.5rem;
+		bottom: 1rem;
+		right: 1rem;
+
+		p {
+			font-size: 8px;
+			-webkit-transform: skew(21deg);
+			-moz-transform: skew(21deg);
+			-o-transform: skew(21deg);
+			transform: skew(21deg);
+		}
+	}
+}
