@@ -5,32 +5,44 @@ import { emailImg, mobileImg } from '../../constants/images';
 import { AppWrap, MotionWrap } from '../../wrapper';
 
 import './Footer.scss';
+import toast from 'react-hot-toast';
 
 const Footer = () => {
 	const form = useRef();
-
-	const sendEmail = (e) => {
-		e.preventDefault();
-		setLoading(true);
-
-		emailjs
-			.sendForm(
-				'service_14pp6wl',
-				'template_w7ksiel',
-				form.current,
-				'Lb_qrdpLv6fzP3RIX'
-			)
-			.then(() => {
-				setLoading(false);
-				setIsFormSubmitted(true);
-			});
-	};
 
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
 		message: '',
 	});
+
+	const sendEmail = (e) => {
+		e.preventDefault();
+
+		if (
+			formData.name === '' &&
+			formData.email === '' &&
+			formData.message === ''
+		) {
+			toast.error('Please fill out form before submitting 👾');
+			console.error(form.current);
+		} else {
+			setLoading(true);
+
+			emailjs
+				.sendForm(
+					'service_14pp6wl',
+					'template_w7ksiel',
+					form.current,
+					'Lb_qrdpLv6fzP3RIX'
+				)
+				.then(() => {
+					setLoading(false);
+					setIsFormSubmitted(true);
+				});
+		}
+	};
+
 	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 	const [loading, setLoading] = useState(false);
 
@@ -89,8 +101,9 @@ const Footer = () => {
 						<input
 							className="p-text"
 							type="text"
-							placeholder="Your Name"
+							placeholder="Your Name *"
 							name="name"
+							required
 							value={name}
 							onChange={handleChangeInput}
 						/>
@@ -99,28 +112,32 @@ const Footer = () => {
 						<input
 							className="p-text"
 							type="email"
-							placeholder="Your Email"
+							placeholder="Your Email *"
 							name="email"
 							value={email}
+							required
 							onChange={handleChangeInput}
 						/>
 					</div>
 					<div>
 						<textarea
 							className="p-text"
-							placeholder="Your Message"
+							placeholder="Your Message *"
 							value={message}
 							name="message"
-							onChange={handleChangeInput}></textarea>
+							required
+							onChange={handleChangeInput}
+						/>
 					</div>
-					<button type="button" className="p-text" onClick={sendEmail}>
+					<button type="submit" className="p-text">
 						{loading ? 'Sending' : 'Send Message'}
 					</button>
 				</form>
 			) : (
-				<div>
-					<h3 className="head-text">
+				<div className="thankYou">
+					<h3 className="head-text col">
 						<span>Thanks for your Message!</span>
+						<p>I look forward to doing business</p>
 					</h3>
 				</div>
 			)}
